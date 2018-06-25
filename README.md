@@ -14,17 +14,17 @@ Example usage
 package main
 
 import (
-    "github.com/ashdawson/goargh"
+	"github.com/ashdawson/goargh"
 )
 
 var args *goargh.ArgsMap
 
 func init() {
-	  args := goargh.GetArgs()
+	args := goargh.GetArgs()
 }
 
 func main() {
-    readArgs(args)
+	readArgs(args)
 }
 
 func readArgs(argMap goargh.ArgsMap) {
@@ -40,4 +40,5 @@ func readArgs(argMap goargh.ArgsMap) {
 		}
 	}
 }
+
 ```
