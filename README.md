@@ -28,16 +28,17 @@ func main() {
 }
 
 func readArgs(argMap goargh.ArgsMap) {
-	for key, val := range argMap {
-		switch key {
-		case "--port":
-			argMap["port"] = val
-		case "--version":
-			fmt.Printf("API Version: %s\n", argMap["version"])
-		case "--env":
-			argMap["environment"] = val
-		default:
-		}
+	argsMap["port"] = os.Getenv("SERVER_PORT")
+	argsMap["environment"] = os.Getenv("CORE_ENVIRONMENT")
+
+	if _, ok := argsMap["--version"]; ok {
+		fmt.Printf("API Version: %s\n", argsMap["version"])
+	}
+	if val, ok := argsMap["--port"]; ok {
+		argsMap["port"] = val
+	}
+	if val, ok := argsMap["--port"]; ok {
+		argsMap["environment"] = val
 	}
 }
 
